@@ -50,7 +50,15 @@ class App extends Component {
     <div className="App">
     <h1>this is home work</h1>
       {element}
-     
+
+    <select>
+      <option value="">-- pick a model --</option>
+      <option value="Ivel Z3">Ivel Z3 (1969)</option>
+      <option value="Bally Astrocade">Bally Astrocade (1977)</option>
+      <option value="Sord M200 Smart Home Computer">Sord M200 Smart Home Computer (1971)</option>
+      <option value="Commodore 64">Commodore 64 (1982)</option>
+    </select>
+
     </div>
   );
 
