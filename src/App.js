@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import PropTypes from 'prop-types'
 
 
 class App extends Component {
@@ -11,19 +10,8 @@ class App extends Component {
 
 
     <div className="App">
-    <h1>this is home work</h1>
       {/* {element} */}
-
-      <select onClick="">
-        <option value="">-- pick a model --</option>
-        <option value="">Ivel</option>
-        <option value="Bally Astrocade">Bally Astrocade (1977)</option>
-        <option value="Sord M200 Smart Home Computer">Sord M200 Smart Home Computer (1971)</option>
-        <option value="Commodore 64">Commodore 64 (1982)</option>
-      </select>
-      <Title content="Some Simple Title" />
-      <LightSwitch />
-      <UserBoard/>
+      <SelectTag/>
 
     </div>
   );
@@ -31,65 +19,52 @@ class App extends Component {
   }
 }
 
-class Title extends Component {
-  static propTypes = {
-    content: PropTypes.string.isRequired,
+class SelectTag extends Component {
+  state = { active: true }
+
+  optionClick = () => {
+    this.setState({
+      active: !this.state.active
+    })
   }
+
+
   render() {
     return (
-        <>
-        <h1>{ this.props.content }</h1>
-        </>
+      <select onClick={this.optionClick }>
+       
+        
+          <OptionTag name="-- pick a model --" value={this.state} />
+          <OptionTag name="Ivel" value={this.state} />
+          <OptionTag  name="Bally Astrocade (1977)" value={this.state} />
+          <OptionTag name="Sord M200 Smart Home Computer (1971)" value={this.state} />
+          <OptionTag name="Commodore 64 (1982)" value={this.state} />
+         
+
+        
+
+      </select>
     )
   }
 }
 
-class LightSwitch extends Component {
-  state = { active: true }
 
-  toggle = () => {
-    this.setState({
-      active: !this.state.active
-    })
-  }
+class OptionTag extends Component {
+ 
 
   render() {
-    return (<div>
-      <p>The light switch is <b>{ this.state.active ? 'on' : 'off' }</b></p>
-      <button onClick={this.toggle}>Toggle</button>
-    </div>)
+    return (
+      <option value={ this.props.value }>{ this.props.name }</option>
+    )
   }
 }
 
-class UserBoard extends Component {
-  render() {
-    return <div>
-          <User name="Chuck"  />
-          <User name="Bruce"  />
-          <User name="Arnold"  />
-          <User name="Sly"  />
 
-    </div>
-  }
-}
-class User extends Component {
-  state = { active: true }
 
-  toggle = () => {
-    this.setState({
-      active: !this.state.active
-    })
-  }
 
-  render() {
 
-    return <div><p>User here: <b>{ this.props.name }</b></p>
-    <p>{ this.props.name } is <b>{ this.state.active ? 'Not' : '' }</b> present</p>
-    <button onClick={this.toggle}>Toggle</button>
-    </div>
 
-  }
-}
+
 
 
 
