@@ -89,10 +89,6 @@ class Option extends Component {
       name: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired
   }
-
-  handleOnClick = () => {
-  
-  }
   
 render = () => {
   return (
