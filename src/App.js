@@ -63,8 +63,8 @@ class Select extends Component {
 updateSelection = (event) => {
   event.preventDefault();
   
-  this.setState(this.state.data.name);
-
+  this.setState({value: event.target.value});
+  console.log({value: event.target.value})
 }
 
 render = (computer) => {
@@ -85,7 +85,8 @@ render = (computer) => {
 
 class Option extends Component {
   static propTypes = {
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
+      year: PropTypes.number.isRequired
   }
 
   handleOnClick = () => {
