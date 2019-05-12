@@ -64,6 +64,7 @@ updateSelection = (event) => {
   event.preventDefault();
   
   this.setState({value: event.target.value});
+  localStorage.setItem(event.target.key,event.target.value);
   console.log({value: event.target.value})
 }
 
