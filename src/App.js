@@ -60,10 +60,12 @@ class Select extends Component {
   />
 }
 
-updateSelection(event) {
+updateSelection = (event) => {
+  event.preventDefault();
+  
   this.setState(this.state.data.name);
-}
 
+}
 
 render = (computer) => {
   return (
